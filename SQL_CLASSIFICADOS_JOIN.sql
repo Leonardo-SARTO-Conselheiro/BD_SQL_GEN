@@ -54,12 +54,15 @@ VALUES
 ('PQP é o melhor goleiro do BRASIL','Esse é Rogério Ceni, o goleiro artileiro','url/adugadu14141',10),
 ('Procuro minha irmã','Procuro minha irma Samanta, que foi abduzida','url/ahdaugdu1341',8),
 ('ELES ESTÃO ENTRE NÓS','Ets estão entre nós, vamos nos cuidar!!!','',8),
-('Vende-se Cursos','Vende-se cursos de programação, focado em front-end','url/dfaifhafa', 4),
+('Vende-se Cursos','Vende-se cursos de programação, focado em front-end','url/dfaifhafa', 8),
 ('Compra-se bala do colt','Compro valas da lendária arma colt','',7),
 ('Jogos lendarios de PS1','Compra e vendas de jogos lendários de PS1 e PS2, venha jogar','url/adghaudgu121431',5),
 ('Venha para o Japão','Venha conhecer uma das culturas mais diferentes do muundo','url/aidhaihdi12141',6)
 
 SELECT * FROM postagens
+
+DELETE postagens
+WHERE id = 35
 
 SELECT 
 	COUNT (id) as total
@@ -70,3 +73,20 @@ FROM
 SELECT * FROM postagens
 WHERE fk_usuario BETWEEN 5 and 10;
 -- para saber as postagens feitas pelos usuarios de 5 a 10
+	
+SELECT
+usuarios.nome, postagens.titulo
+FROM usuarios
+LEFT JOIN postagens
+ON usuarios.id = postagens.fk_usuario
+-- para pegar o nome da tabela usuarios e o titulo da postagens, 
+-- como o usuario de id 4 nao tem postagem, ele vai aparecer no titulo como null, isso é o LEFT JOIN
+
+-- WHERE postagens.titulo IS NULL
+-- caso queria pegar apenas o nome do usuario que não tem postagem 
+
+
+
+
+
+
